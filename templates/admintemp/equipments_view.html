@@ -1,0 +1,36 @@
+{% extends 'admintemp/admin_home.html' %}
+{% block content %}
+<style>
+  .card-deck{height : 450px; overflow-y: auto;}
+</style>
+<!--{% for message in messages %}-->
+<!--<div class="alert alert-success" role="alert">-->
+<!--    <strong>{{message}}</strong>-->
+<!--</div>-->
+<!--{% endfor %}-->
+
+<!--<div class='row card-group'>-->
+    {% for i in equipments %}
+<div class="col-4">
+  <div class="card-deck">
+<div class="card" style="width: 25rem;">
+  <img src="{{i.image.url}}" width="350px" height="250px" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <p class="card-text">{{i.discrition}}</p>
+    <form method="post" action="{% url 'equipments_delete' i.id %}" >
+      {% csrf_token %}
+    <button type="submit" class="btn btn-danger" >Delete</button>
+      </form>
+  </div>
+<!--  <script>-->
+<!--  function del1(){-->
+<!--  alert("equipment will be deleted!!")-->
+<!--  }-->
+<!--  </script>-->
+</div>
+</div>
+</div>
+   {% endfor %}
+<!--</div>-->
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'admintemp/admin_home.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-md-6 grid-margin stretch-card" xmlns="http://www.w3.org/1999/html">
+              <div class="card">
+                <div class = "card-body">
+                  <h4 class = "card-title">Mark Attendance</h4>
+                    <form method ="post" novalidate= "novalidate">
+                        {% csrf_token %}
+
+                      <div class="form-group">
+                        <label>Attendence</label><br><br>
+                      </div>
+
+                      <input type="radio" name="attendance" value="Present" required>P<br>
+                      <input type="radio" name="attendance" value="Absent" required>A<br>
+                </div>
+  <button class="btn btn-info" type="submit">ADD</button>
+</form>
+</div>
+</div>
+{% endblock %}

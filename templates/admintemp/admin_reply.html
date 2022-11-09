@@ -1,0 +1,75 @@
+{% extends 'admintemp/admin_home.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-md-6 grid-margin stretch-card">
+  <div class="card">
+<!--     {% for message in messages %}-->
+<!--&lt;!&ndash;<div class="alert alert-success" role="alert">&ndash;&gt;-->
+<!--&lt;!&ndash;  Equipment is added !&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--{% endfor %}-->
+                <div class="card-body">
+<!--                  <h4 class="card-title">Add Batch</h4>-->
+<!--                  <p class="card-description">-->
+<!--                    you can Add New Batches Here-->
+<!--                  </p>-->
+                  <form class="forms-sample" method="post" enctype="multipart/form-data">{% csrf_token %}
+                      <div class="form-group">
+
+<label class form-control-label">name</label>
+
+<input required class="form-control" readonly value="{{rid.user}}">
+
+</div>
+                      <div class="form-group">
+
+<label class form-control-label">Complaint</label>
+
+<input required class="form-control" readonly value="{{rid.complaint}}">
+
+</div>
+                      <div class="form-group">
+
+<label class form-control-label">Date</label>
+
+<input required class="form-control" readonly value="{{rid.date}}">
+
+</div>
+                      <div class="form-group">
+
+
+<label for="reply" class="form-control-label">Reply</label>
+
+<textarea cols="5" rows="7" required id="reply" class="form-control" name="reply">
+
+</textarea>
+
+</div>
+
+<div class="form-actions form-group">
+
+<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+
+</div>
+
+{% for message in messages %}
+
+<div class="alert alert-primary" role="alert">
+
+{{message}}
+
+</div>
+                      {% endfor %}
+<!--    <label for="Batchid">Batch Name</label>-->
+<!--    <input type="text" class="form-control" id="Batchid" name="name">-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="id_time">Batch Time</label>-->
+<!--    <input type="time" class="form-control" name="time" id="id_time">-->
+<!--  </div>-->
+<!--                    <button type="submit" class="btn btn-primary mr-2">Submit</button>-->
+                  </form>
+                </div>
+              </div>
+            </div>
+{% endblock %}

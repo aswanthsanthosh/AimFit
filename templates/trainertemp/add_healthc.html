@@ -1,0 +1,24 @@
+{% extends 'trainertemp/trainer_home.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-md-6 grid-margin stretch-card">
+  <div class="card">
+     {% for message in messages %}
+<!--<div class="alert alert-success" role="alert">-->
+<!--  Equipment is added !-->
+<!--</div>-->
+{% endfor %}
+                <div class="card-body">
+                  <h4 class="card-title">Add Health Condition update Plan</h4>
+                  <p class="card-description">
+                  </p>
+                  <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ health_form|crispy }}
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+{% endblock %}

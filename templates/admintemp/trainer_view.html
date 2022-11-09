@@ -1,0 +1,82 @@
+{% extends 'admintemp/admin_home.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Trainer Details Table</h4>
+<!--                  <p class="card-description">-->
+<!--                    Add class <code>.table-striped</code>-->
+<!--                  </p>-->
+
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            Sl No.
+                          </th>
+                          <th>
+                             Name
+                          </th>
+                          <th>
+                            Username
+                          </th>
+                          <th>
+                            Age
+                          </th>
+                          <th>
+                            Address
+                          </th>
+                          <th>
+                            Qualification
+                          </th>
+                          <th>
+                            Achievements
+                          </th>
+                          <th>
+                            Contact No
+                          </th>
+                          <th>
+                            Image
+                          </th>
+                          <th>
+                            Delete
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in register %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{i.name}}</td>
+                          <td>{{i.user}}</td>
+                          <td>{{i.age}}</td>
+                          <td>{{i.address}}</td>
+                          <td>{{i.qualification}}</td>
+                          <td>{{i.achievement}}</td>
+                          <td>{{i.contact_no}}</td>
+                          <td><img src="{{i.image.url}}" class="rounded float-start" style="width:70px;height:60px;"></td>
+                          <td><form method="post" action="{% url 'trainer_delete' i.id %}" onsubmit="sub1()">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">
+                          Delete
+                          </button></form></td>
+                          </tr>
+                          {% endfor %}
+<!--                          <td class="py-1">-->
+<!--                          </td>-->
+<!--                          <td></td>-->
+
+                      </body>
+                    </table>
+                  </div>
+                  <script>
+                    function sub1(){
+                    alert("user will be deleted!!")
+                    }
+                  </script>
+                </div>
+              </div>
+</div>
+{% endblock %}

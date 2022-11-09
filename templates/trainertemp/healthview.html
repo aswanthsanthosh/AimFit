@@ -1,0 +1,55 @@
+{% extends 'trainertemp/trainer_home.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Helath Details Table</h4>
+<!--                  <p class="card-description">-->
+<!--                    Add class <code>.table-striped</code>-->
+<!--                  </p>-->
+
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            #
+                          </th>
+                          <th>
+                             Name
+                          </th>
+                          <th>
+                            Height
+                          </th>
+                          <th>
+                            Weight
+                          </th>
+                          <th>
+                            Medicin Consumption
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in health %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{i.name}}</td>
+                          <td>{{i.height}}</td>
+                          <td>{{i.weight}}</td>
+                          <td>{{i.medicinconsumption}}</td>
+
+                          </tr>
+                          {% endfor %}
+<!--                          <td class="py-1">-->
+<!--                          </td>-->
+<!--                          <td></td>-->
+
+                      </body>
+                    </table>
+                  </div>
+
+                </div>
+              </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'usertemp/user_home.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Registration form</h4>
+                  <p class="card-description">
+                    You can Register here
+                  </p>
+                  <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ login_form|crispy }}
+                    {{ customer_form|crispy }}
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+{% endblock %}

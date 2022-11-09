@@ -1,0 +1,31 @@
+{% extends 'trainertemp/trainer_home.html' %}
+{% block content %}
+<style>
+  .card-deck{height : 350px; overflow-y: auto;}
+</style>
+<!--{% for message in messages %}-->
+<!--<div class="alert alert-success" role="alert">-->
+<!--    <strong>{{message}}</strong>-->
+<!--</div>-->
+<!--{% endfor %}-->
+
+<!--<div class='row card-group'>-->
+    {% for i in diet %}
+<div class="col-4">
+  <div class="card-deck">
+<div class="card" style="width: 25rem;">
+  <img src="{{i.diet.url}}" width="350px" height="250px" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.heading}}</h5>
+  </div>
+<!--  <script>-->
+<!--  function del1(){-->
+<!--  alert("equipment will be deleted!!")-->
+<!--  }-->
+<!--  </script>-->
+</div>
+</div>
+</div>
+   {% endfor %}
+<!--</div>-->
+{% endblock %}

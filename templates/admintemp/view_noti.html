@@ -1,0 +1,30 @@
+{% extends 'admintemp/admin_home.html' %}
+{% block content %}
+<style>
+  .card{
+  overflow-y: auto;
+  }
+</style>
+<div class="card-columns">
+    {% for i in notif %}
+    <div class="col-4">
+    <div class="card" style="width: 17rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{i.subject}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{i.date}}</h6>
+    <p class="card-text">{{i.text}}</p>
+      <form method="post" action="{% url 'notification_delete' i.id %}" >
+      {% csrf_token %}
+          <a class="btn btn-primary" href="{% url 'notifi_update' i.id %}" role="button">Update</a>
+    <button type="submit" class="btn btn-danger" >Delete</button>
+
+      </form>
+  </div>
+</div>
+        </div>
+
+
+
+   {% endfor %}
+</div>
+{% endblock %}

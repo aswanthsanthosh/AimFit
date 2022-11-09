@@ -1,0 +1,67 @@
+{% extends 'admintemp/admin_home.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Payment Details Table</h4>
+<!--                  <p class="card-description">-->
+<!--                    Add class <code>.table-striped</code>-->
+<!--                  </p>-->
+
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>
+                             Name
+                          </th>
+                          <th>
+                            Amount
+                          </th>
+                          <th>
+                            Due Date
+                          </th>
+                          <th>Payment Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in pay %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{i.name}}</td>
+                          <td>{{i.amount}}</td>
+                          <td>{{i.due_date}}</td>
+                          <td>{% if i.card_no %}
+                          <p>This Payment has been Already Done</p>
+                          {% else %}
+                          <p>Payment Pending</p>
+                          {% endif %}
+                            </td>
+<!--                          <td><a class="btn btn-primary" href="{% url 'batch_update' i.id %}" >Update</a> </td>-->
+<!--                          <td><form method="post" action="{% url 'batch_delete' i.id %}" >-->
+<!--                            {% csrf_token %}-->
+<!--                            <button type="submit" class="btn btn-danger">-->
+<!--                          Delete-->
+<!--                          </button>-->
+<!--                          </form>-->
+<!--                          </td>-->
+                          </tr>
+                          {% endfor %}
+<!--                          <td class="py-1">-->
+<!--                          </td>-->
+<!--                          <td></td>-->
+
+                      </body>
+                    </table>
+                  </div>
+<!--                  <script>-->
+<!--                    function sub1(){-->
+<!--                    alert("user will be deleted!!")-->
+<!--                    }-->
+<!--                  </script>-->
+                </div>
+              </div>
+</div>
+{% endblock %}

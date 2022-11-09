@@ -1,0 +1,23 @@
+{% extends 'trainertemp/trainer_home.html' %}
+{% block content %}
+<!--<style>-->
+<!--  .card-deck{height : 450px; overflow-y: auto;}-->
+<!--</style>-->
+<div class="col-4">
+  <div class="card-deck">
+<div class="card" style="width: 25rem;">
+  <img src="{{request.user.trainer.image.url}}" width="350px" height="250px" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Name : {{request.user.trainer.name}}</h5>
+    <h5 class="card-title">Age : {{request.user.trainer.age}}</h5>
+    <h5 class="card-title">Address : {{request.user.trainer.address}}</h5>
+    <h5 class="card-title">Qualification : {{request.user.trainer.qualification}}</h5>
+    <h5 class="card-title">Achievement : {{request.user.trainer.achievement}}</h5>
+    <h5 class="card-title">Contact No : {{request.user.trainer.contact_no}}</h5>
+  <a class="btn btn-primary" href="{% url 'profile_update' request.user.trainer.id %}" role="button">Update</a>
+
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}
